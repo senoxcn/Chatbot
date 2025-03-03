@@ -37,7 +37,6 @@ class Bot:
         reader = SimpleDirectoryReader(input_files=["temp_document.txt"])
         documents = reader.load_data()
 
-        # ✅ Corrected model loading for GGUF files
         llm = AutoModelForCausalLM.from_pretrained(
             model_path,
             model_file=model_path,  # `model_file` for GGUF models

@@ -48,7 +48,7 @@ def add_to_vector_db(question, answer):
     print(f"[SUCCESS] Added question: {question}")
 
 # Run this only once to store FAQs
-file_path = r'c:\Users\cudiamam\Documents\Code\Reedy\FAQ.txt'
+file_path = r'c:\Users\FAQ.txt' #[FAQ.txt] change this to your file path
 document = load_document(file_path)
 
 print("[INFO] Storing FAQ data in ChromaDB...")

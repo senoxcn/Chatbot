@@ -1,2 +1,3 @@
 pip install chromadb sentence-transformers
 pip install sentence-transformers
+FAQ.txt

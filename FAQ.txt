@@ -1,0 +1,32 @@
+What happens if a reserved room is not used within 15 minutes?
+If a reserved room is not used within 15 minutes, it will automatically become available to other requestors.
+
+What is the recommended timeframe for booking flights for local and international travel?
+Travelers are encouraged to book flights at least one month in advance for local travel and three months in advance for international trips.
+
+Where should requestors submit documents for a car sticker application?
+Requestors should submit physical copies of documents at 2F Building H reception.
+
+How many days in advance should reservations be made for shuttle requests?
+Reservations for shuttle requests should be made at least three days prior to the scheduled trip.
+
+What is the turnaround time (TAT) for various admin services?
+The turnaround time is generally 2-3 business days for most requests, except for car sticker applications which may take 30-60 business days. For travel request, it may take 30 business days for local and 90 business days for international.
+
+What is the turnaround time (TAT) for specific admin services?
+The TAT for various requests is as follows:
+1. Laptop and Peripherals Request: 2-3 business days.
+2. Non-Solus Request: 2-3 business days.
+3. Car Sticker Application: 30-60 business days.
+
+Who can use IT Service Now for laptop requests?
+Leaders may use IT Service Now for laptop requests, except for employees supporting Elsevier who must follow the old process.
+
+What should be done if a room reservation is no longer needed?
+If a reserved room is not going to be used, please ensure to cancel the reservation to make it available for other users.
+
+How do I access Solus-Non?
+To access Solus-Non, make sure you are connected to VPN or Ivanti. It is recommended to use Chrome as your browser.
+
+How long does it take for Admin & Facilities to respond to a ticket?
+The response time for Admin & Facilities is 2-3 working days. You will receive an update via email.

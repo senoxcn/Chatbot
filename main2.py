@@ -73,7 +73,7 @@ class Bot:
         return full_answer  # Returns the **entire** answer
 
 # Load and preprocess document
-file_path = r'c:\Users\cudiamam\Documents\Code\Reedy\FAQ.txt'
+file_path = r'c:\FAQ.txt' #path to file
 document = load_document(file_path)
 
 # Initialize chatbot

@@ -19,8 +19,17 @@ The TAT for various requests is as follows:
 2. Non-Solus Request: 2-3 business days.
 3. Car Sticker Application: 30-60 business days.
 
+How long does it take to process specific requests within the Admin & Facilities department?
+- Laptop and Peripherals Request: 2-3 business days
+- Non-Solus Request: 2-3 business days
+- Car Sticker Application: 30-60 business days
+- Facilities-related concerns like printer access, badge ID, housekeeping, and maintenance: 2-3 business days
+
 Who can use IT Service Now for laptop requests?
 Leaders may use IT Service Now for laptop requests, except for employees supporting Elsevier who must follow the old process.
+
+How can employees request a laptop and peripherals through IT Service Now?
+Leaders may submit a request through IT Service Now for laptops. However, employees supporting Elsevier should follow the old process. To request IT peripherals, an accomplished ERF should be sent to admin@email.com
 
 What should be done if a room reservation is no longer needed?
 If a reserved room is not going to be used, please ensure to cancel the reservation to make it available for other users.
@@ -30,3 +39,168 @@ To access Solus-Non, make sure you are connected to VPN or Ivanti. It is recomme
 
 How long does it take for Admin & Facilities to respond to a ticket?
 The response time for Admin & Facilities is 2-3 working days. You will receive an update via email.
+
+What is the typical response time for Admin & Facilities requests?
+Admin and Facilities typically respond within 2-3 business days, and an email update will be sent regarding your request.
+
+What are the steps involved in reserving a room?
+Here are the steps for room reservation:
+1. Go to: room-reservation.com
+2. Click on the calendar icon
+3. Choose your "Agenda" from the drop-down list
+4. Select the specific "Building" where the room is located
+5. Choose the desired "Room" for reservation
+
+How can a shuttle request be made?
+Here are the steps for shuttle request:
+1. Go to: shuttle-request.com
+2. Click on "Shuttle Request Form
+3. Select "New" to initiate a new request
+4. Fill in all the necessary fields within the form.
+5. Save the completed request by clicking "Save."
+
+What is the procedure for submitting a travel request?
+Here are the steps for travel request:
+1. Go to: travel-request.com
+2. Click on "Create Request" to begin the process
+3. Attach the required approval from your immediate leader
+4. Complete all mandatory fields in the request form
+5. Save the request by clicking on the "Save" button
+Please note that in accordance with the Travel & Expense Policy, access to the system is limited to Managers and Directors to attend to work-related trips whether for international or local business travels.
+
+What is the process for building permit?
+Here are the steps to obtain a building permit:
+1. Go to: building-permit-request.com
+2. Select "New Item" on the webpage.
+3. Enter all the necessary information in the required fields.
+4. Click on "Save" to submit your building permit application successfully
+
+What should be done if a room reservation is no longer needed?
+If a reserved room is not going to be used, please ensure to cancel the reservation to make it available for other users.
+
+How far in advance should shuttle reservations be made?
+It is recommended to make shuttle reservations at least 3 days prior to the scheduled trip to secure a slot.
+
+What is the expected turnaround time for car sticker applications?
+The turnaround time for processing car sticker applications typically ranges from 30 to 60 business days.
+
+What login name should I use to access the helpdesk tools?
+There is no need to enter a login name. You will be automatically redirected to the user interface page.
+
+How can employees deploy laptops through ServiceNow?
+Laptop deployment process via ServiceNow involves specific steps:
+1. Go to ServiceNow Portal: service-now.com
+2. Navigate to Home > Request Something > Hardware > Windows Laptop Standard
+or go to service-now-laptop-request.com [Windows Laptop Standard - Service Portal (service-now.com)]
+3. The laptop request form will be displayed. Provide the necessary details like office location, pick-up date, peripherals, business reason, machine usage, employee information, and attachments.
+4. After providing all the information, click on “Add to Cart”.
+5. A new item will be added to your Cart, click the Cart icon then hit “Proceed to Checkout”
+6. Order Confirmation window will appear, under the Requestor for search for the name of the new hire or the user this laptop request is intended for.
+7. After providing the needed information, click “Checkout”.
+8. A ticket will be created regarding your request and will be processed accordingly.
+9. ServiceNow has automated notifications for end users, including ticket updates and completed ticket.
+
+What is the procedure for deploying peripherals through ServiceNow?
+Peripherals deployment process via ServiceNow entails:
+1. Go to ServiceNow Portal: service-now.com
+2. Go to Home > Request Something > Generic Service Request Or use this link: service-now-peripherals-request.com
+3. Clear and change the “Assignment Group” field then search and use the following group based on your location:
+	a. MNL - Facilities Asset Mgmt (MNL) (LNG)
+	b. ILO - Facilities Asset Mgmt (ILO) (LNG)
+4. Describe what IT peripherals you are requesting (monitor, docking station, headset, keyboard, cables and mouse) with the following information for the intended employee.
+	a. Name
+	b. Employee ID
+	c. Date of pickup
+5. Add attachment
+	a. Attach Manager approval (new request)
+	b. Attach Technical Report if for peripheral’s replacement
+6. Click “Submit”
+
+How to request a Non-Standard laptop?
+To request a Non-standard laptop, such as a MacBook, Customized, or High Performing laptop, follow these steps:
+1. Contact our Local Procurement team led by Dela Cruz, Juan at delacruz.juan@email.com to provide the necessary IT specifications for sourcing and pricing.
+2. Once the request is confirmed and identified, submit the request in the PR Tool at pr-tool.com
+3. Await confirmation of the request and the delivery date.
+4. Upon receiving the laptop, create a ServiceNow ticket following the same process as for a New Hire request. Mention/include the Asset Tag in the ticket since the unit is already identified and available
+
+When to use ServiceNow in requesting IT equipment?
+ServiceNow should be utilized for ALL IT equipment requests, including New Hire/New Laptop, Unit Replacement, BCP and IT peripherals (headset, monitor docking, keyboard, cables and mouse), and Non-Standard Laptops (MacBook, Customized, or High Performing Laptop)
+
+When should ServiceNow be utilized for IT equipment requests?
+ServiceNow should be used for all IT equipment requests, including New Hire/New Laptop, Unit Replacement, BCP, IT peripherals, and Non-Standard Laptops, as specified for REPH IT equipment procedures.
+
+What are the information needed for New Laptop/Replacement Request in ServiceNow?
+Please provide the following information on the “Additional Notes” field in the ServiceNow Form
+a. For New Hire/New Laptop:
+	- Name:
+	- Employee ID:
+	- Date of pick up:
+	- Attach Valid ID
+Please note that no need to attach/fill-up ER form
+b. For Replacement (Provided by our local IT Team)
+	- Old Laptop Asset Number
+	- Old Laptop Model
+	- Attached Technical Report
+c. For BCP or Additional machine
+	- Attached Technical Report (unit is defective under warranty)
+	- Business reason why need of additional machine
+
+How to request Non-Standard laptop, Battery Replacement and other Laptop parts/accessory upgrade?
+Non-standard Laptop: MacBook, Customized Hardware Specification
+Laptop parts: Battery, Memory, and Hard Drive
+Normally this type of request need for sourcing with the help of our Local Procurement team. Once confirmed and identified lodge in PR tool for procurement. Just attached Business Justification and Technical reports if for upgrade. Once unit is received, please file a ServiceNow ticket same process for Windows Laptop Standard and provide the Asset Tag in the ticket and the employee details.
+
+Can I make a bulk request in ServiceNow for the IT equipment?
+Unfortunately, the system allows only one request per individual.
+
+I am seeing price/cost on the hardware catalog form in ServiceNow, will I be charged for this?
+No, just ignore the cost and proceed with the request. In addition, you will also notice the model specified in the form. This is not always the case or the expected model that will be issued to you. The team will provide whatever available viable standard model unit from our inventory.
+
+Will there be exemptions for equipment delivery request?
+Delivery is still granted for employees based in Cebu site and for future satellite (virtual) office.
+
+I had issues with my laptop, it requires reimaging. Can I request to have it picked up from my house?
+Employee may proceed to the office; local IT prefers on-site checking for faster troubleshooting. Onsite support schedules are as follows:
+	MNL – Building L GF Training Room | Monday to Friday | 9am-6pm
+	ILO – 3F Admin & Facilities Office | Monday to Friday | 10am-5pm
+
+Can we arrange courier to pick up my equipment in the office?
+Yes, employee may personally arrange any local courier. The details of courier, date of pickup and signed Telecommuting Accountability Agreement (TAA) form should be sent to Admin team in advance. Same for returning of issued equipment from employee’s home address to REPH Facility, it should be employee’s responsibility. Returning of equipment via courier should have an “Equipment Return” label with the following details:
+	- Date:
+	- Name:
+	- Division:
+	- Asset item/s:
+
+What are the specific steps involved in requesting a Non-Standard laptop, such as a MacBook or a Customized high-performing laptop?
+To request a Non-Standard laptop through the IT-Admin Equipment Deployment Process:
+1. Contact the Local Procurement team led by Dela Cruz, Juan at delacruz.juan@email.com to provide the necessary IT specification requirements for sourcing and pricing.
+2. Once the request is confirmed and specifications identified, lodge the request in the PR Tool at pr-tool.com
+3. Await confirmation of the request and the scheduled delivery date.
+4. When the laptop is delivered, create a new ServiceNow ticket following the same process as for a New Hire request. Include the Asset Tag in the ticket as the unit is already identified and available.
+
+How can IT equipment request for peripherals be made via ServiceNow?
+Employees can deploy laptops through ServiceNow by following specific steps:
+1. Access the ServiceNow Portal: service-now.com
+2. Navigate to Home > Request Something > Hardware > Windows Laptop Standard
+3. Fill out the laptop request form with necessary details such as office location, pick-up date, peripherals, business reason, machine usage, employee information, and attachments.
+4. Click on Add to Cart after providing all information and proceed to Checkout.
+5. Confirm the order details under the Requestor's name and complete the checkout process.
+6. A ticket will be created for the laptop deployment request in ServiceNow, with automated notifications for end users
+
+What information is required for a New Laptop/Replacement request in ServiceNow
+In the case of a New Laptop/Replacement Request in ServiceNow, ensure to provide essential information in the Additional Notes field of the ServiceNow Form, including details like Name, Employee ID, Date of pick up, and Attach Valid ID (no need to attach/fill ER form).
+
+Is it possible to make bulk requests for IT equipment through ServiceNow?
+Bulk requests for IT equipment in ServiceNow are restricted to one request per individual.
+
+Will there be any exceptions for equipment delivery requests?
+Employees in Cebu site and future satellite (virtual) office are eligible for equipment delivery exemptions.
+
+What options are available for handling laptop reimaging issues?
+If an employee encounters issues with their laptop needing reimaging, onsite troubleshooting is preferred by local IT for faster resolution during the scheduled support hours.
+
+Can a courier be arranged to pick up IT equipment from the office?
+Employees have the option to arrange a local courier for picking up equipment in the office. Prior arrangements with the Admin team are necessary, along with the completion of a Telecommuting Accountability Agreement (TAA) form. When returning equipment via courier, ensure the Equipment Return label contains relevant details like Date, Name, Division, and Asset item/s.
+
+What assistance is available for local and international travel for employees?
+Assistance available for local and international travel for employees is coordinated by the Admin Team, specifically the travel administrators designated within the company.

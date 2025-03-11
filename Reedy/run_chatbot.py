@@ -3,11 +3,16 @@ from llama_index.core import VectorStoreIndex, StorageContext
 from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import PromptTemplate
+from dotenv import load_dotenv
+import os
 import requests
-import json
+from intents import intent_map, detect_intent
 
-# Local Ollama API
-url = "http://localhost:11434/api/chat"
+load_dotenv()
+
+#OpenAI API
+OPENAI_ENDPOINT = os.getenv("OPENAI_ENDPOINT")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Load embedding model
 embedding_model = HuggingFaceEmbedding(model_name="all-MiniLM-L6-v2")
@@ -23,35 +28,61 @@ storage_context = StorageContext.from_defaults(vector_store=vector_store)
 # Create the index
 index = VectorStoreIndex.from_vector_store(vector_store, embed_model=embedding_model)
 
-# Initialize LLaMA 3.2 1b Model with Ollama
+# Initialize GPT-4o Mini Model
 class LLM:
-    def __init__(self, model_name="mistral"):
-        self.url = url
+    def __init__(self, model_name="gpt-4o-mini"):
         self.model_name = model_name
 
     def complete(self, prompt):
+        headers = {
+            "Content-Type": "application/json",
+            "ocp-apim-subscription-key": OPENAI_API_KEY,
+        }
         payload = {
             "model": self.model_name,
-            "messages": [{"role": "user", "content": prompt}],
-            "stream": False
+            "messages": [
+                #{"role": "system", "content": prompt},
+                {"role": "user", "content": prompt},
+            ],
+            #"temperature": 0.7,    #lower value, more focused. higher values make it more creative
+            #"max_tokens": 500      #limits the words/texts in the response
         }
-        response = requests.post(self.url, json=payload)
-        if response.status_code == 200:
-            return response.json().get("message", {}).get("content", "").strip()
-        else:
-            return "Error: Failed to connect with Ollama API."
+
+        try:
+            response = requests.post(OPENAI_ENDPOINT, headers=headers, json=payload)
+            response.raise_for_status()  # Raise error if request fails
+            return response.json()["choices"][0]["message"]["content"].strip()
+        except requests.exceptions.RequestException as e:
+            return f"Request Error: {str(e)}"
+        except KeyError:
+            return "Unexpected response format. Please check the API response."
 
 # Bot Class
 class Bot:
     def __init__(self):
         self.index = index
-        self.llm = LLM(model_name="mistral")  # Instantiate the LLM class
+        self.llm = LLM(model_name="gpt-4o-mini")  # Instantiate the LLM class
 
     def answer_question(self, user_query):
         # Encode the user query into an embedding
         query_embedding = embedding_model.get_text_embedding(user_query)
+        detected_intent = detect_intent(user_query)
 
-        # Using ChromaDB Direct Query (faster for FAQs)
+        if detected_intent:
+            context = intent_map[detected_intent]["context"]
+
+            prompt = f"""
+            Speak in an informative and friendly way.
+            Provide concise and accurate information.
+
+            User's Question: {user_query}
+            Context Information: {context}
+            """
+            
+            response = self.llm.complete(prompt)
+            return response.strip()
+
+        # Using ChromaDB Direct Query
         search_results = chroma_collection.query(
             query_embeddings=[query_embedding],  # Pass as a list
             n_results=3  # Retrieve top 3 results
@@ -66,17 +97,22 @@ class Bot:
         else:
             context = "That question is outside my knowledge scope."
 
-        # Generate enhanced answer using LLaMA 3.2 3b
+
+
         prompt = f"""
         ## Task and Context
-        You are an assistant for the employees on X's.
-        You handle inquiries about shuttle service request tool, admin and facility service desk, travel request tool, room reservation tool, and other common queries.
+        You are an assistant for the employees on Reed Elsevier.
+        You handle inquiries about shuttle service request tool, admin and facility service desk, travel request tool, room reservation tool, IT equipment request and deployment, and other common queries.
         Answer the question: {user_query}
-        Use the following context to answer the question:
-        {context}
+        Use the following context to answer the question: {context}
 
         ## Style Guide
         Speak in an informative and friendly way.
+        Provide concise and accurate information.
+        If the answer is not found, suggest related topics or ask for clarification.
+        For questions outside the scope of context, reply with 'That question is outside my knowledge scope.'
+        Avoid using jargon unless necessary, and explain any technical terms used.
+        Always ensure the user feels understood and assisted.
         """
 
         response = self.llm.complete(prompt)
@@ -85,7 +121,7 @@ class Bot:
 # Initialize chatbot
 chatbot = Bot()
 
-# Interactive Chat
+# User Chat
 print('Reedy: Hello! How may I help you?\nType "exit" to quit.')
 while True:
     user_query = input('\nYou: ')

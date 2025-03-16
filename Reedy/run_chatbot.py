@@ -1,3 +1,4 @@
+from flask import Flask, request, jsonify, render_template
 import chromadb
 from llama_index.core import VectorStoreIndex, StorageContext
 from llama_index.vector_stores.chroma import ChromaVectorStore
@@ -6,7 +7,6 @@ from llama_index.core import PromptTemplate
 from dotenv import load_dotenv
 import os
 import requests
-from intents import intent_map, detect_intent
 
 load_dotenv()
 
@@ -28,7 +28,7 @@ storage_context = StorageContext.from_defaults(vector_store=vector_store)
 # Create the index
 index = VectorStoreIndex.from_vector_store(vector_store, embed_model=embedding_model)
 
-# Initialize GPT-4o Mini Model
+# Initialize OpenAI GPT-4o-mini model
 class LLM:
     def __init__(self, model_name="gpt-4o-mini"):
         self.model_name = model_name
@@ -66,29 +66,16 @@ class Bot:
     def answer_question(self, user_query):
         # Encode the user query into an embedding
         query_embedding = embedding_model.get_text_embedding(user_query)
-        detected_intent = detect_intent(user_query)
 
-        if detected_intent:
-            context = intent_map[detected_intent]["context"]
-
-            prompt = f"""
-            Speak in an informative and friendly way.
-            Provide concise and accurate information.
-
-            User's Question: {user_query}
-            Context Information: {context}
-            """
-            
-            response = self.llm.complete(prompt)
-            return response.strip()
-
-        # Using ChromaDB Direct Query
+        # Using ChromaDB Direct Query (faster for FAQs)
         search_results = chroma_collection.query(
             query_embeddings=[query_embedding],  # Pass as a list
-            n_results=3  # Retrieve top 3 results
+            n_results=3,  # Retrieve top 3 results
+            include=["distances", "metadatas", "documents"]
         )
 
         # Extract context from search results
+
         if search_results["ids"] and search_results["ids"][0]:
             context = "\n".join([
                 f"Q: {search_results['ids'][0][i]}\nA: {search_results['metadatas'][0][i]['answer']}"
@@ -96,6 +83,29 @@ class Bot:
             ])
         else:
             context = "That question is outside my knowledge scope."
+
+        '''
+        if search_results["ids"] and search_results["ids"][0]:
+            print("\nSearch Results and Confidence Scores:")
+            for i in range(len(search_results["ids"][0])):
+                confidence_score = 1 - search_results["distances"][0][i]
+                print(f"Result {i+1}:")
+                print(f"  Q: {search_results['ids'][0][i]}")
+                print(f"  A: {search_results['metadatas'][0][i]['answer']}")
+                print(f"  Confidence Score: {confidence_score:.4f}\n")
+
+            # Format context for the model prompt
+            context = "\n".join([
+                f"Q: {search_results['ids'][0][i]}\n"
+                f"A: {search_results['metadatas'][0][i]['answer']}\n"
+                f"Confidence Score: {confidence_score:.4f}"
+                for i in range(len(search_results["ids"][0]))
+            ])
+
+        else:
+            context = "That question is outside my knowledge scope."
+        '''
+
 
 
 
@@ -109,8 +119,9 @@ class Bot:
         ## Style Guide
         Speak in an informative and friendly way.
         Provide concise and accurate information.
+        If the {user_query} has less than 3 words or has multiple possible interpretations, is ambiguous and vague, ALWAYS suggest related topics or ask for clarification. DO NOT provide a direct answer.
         If the answer is not found, suggest related topics or ask for clarification.
-        For questions outside the scope of context, reply with 'That question is outside my knowledge scope.'
+        For questions outside the scope of context, reply with 'That question is outside my knowledge scope.
         Avoid using jargon unless necessary, and explain any technical terms used.
         Always ensure the user feels understood and assisted.
         """
@@ -120,8 +131,24 @@ class Bot:
 
 # Initialize chatbot
 chatbot = Bot()
+'''
+app = Flask(__name__)
 
-# User Chat
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/ask", methods=["POST"])
+def ask():
+    user_query = request.json.get("query")
+    response = chatbot.answer_question(user_query)
+    return jsonify({"response": response})
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+'''
+# Interactive Chat sa terminal
 print('Reedy: Hello! How may I help you?\nType "exit" to quit.')
 while True:
     user_query = input('\nYou: ')
